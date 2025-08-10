@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockEasy - Medicine Management System</title>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-pills"></i> Stock Easy</h2>
+                <p>Medicine Stock Management System</p>
+            </div>
+            <div class="login-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="login-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="login-password" class="form-control" required>
+                    </div>
+                    <div class="form-group form-actions">
+                        <div class="checkbox-label">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <button type="button" id="forgot-password-btn" class="btn btn-link">Forgot Password?</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i>
+                            Login</button>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Page -->
+    <div id="forgot-password-page" class="login-container hidden">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-key"></i> Reset Password</h2>
+            </div>
+            <div class="login-body">
+                <form id="forgot-password-form">
+                    <div class="form-group">
+                        <label for="reset-email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="reset-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password"><i class="fas fa-lock"></i> New Password</label>
+                        <input type="password" id="new-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" id="confirm-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sync-alt"></i> Reset
+                            Password</button>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p>Remember your password? <a href="#" id="back-to-login">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Verification Page -->
+    <div id="otp-page" class="login-container hidden">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-mobile-alt"></i> OTP Verification</h2>
+                <p>Enter the OTP sent to your email</p>
+            </div>
+            <div class="login-body">
+                <form id="otp-form">
+                    <div class="form-group">
+                        <label for="otp-code"><i class="fas fa-shield-alt"></i> OTP Code</label>
+                        <input type="text" id="otp-code" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i>
+                            Verify OTP</button>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p>Didn't receive OTP? <a href="#" id="resend-otp">Resend OTP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Page -->
+    <div id="register-page" class="login-container hidden">
+        <div class="login-card">
+            <div class="login-header">
+                <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            </div>
+            <div class="login-body">
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="first-name"><i class="fas fa-user"></i> First Name</label>
+                        <input type="text" id="first-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name"><i class="fas fa-user"></i> Middle Name</label>
+                        <input type="text" id="middle-name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name"><i class="fas fa-user"></i> Last Name</label>
+                        <input type="text" id="last-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-name"><i class="fas fa-briefcase"></i> Business Name</label>
+                        <input type="text" id="business-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country"><i class="fas fa-globe"></i> Country</label>
+                        <input type="text" id="country" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city"><i class="fas fa-city"></i> City</label>
+                        <input type="text" id="city" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state"><i class="fas fa-map-marker-alt"></i> State</label>
+                        <input type="text" id="state" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="street"><i class="fas fa-road"></i> Street Number</label>
+                        <input type="text" id="street" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode"><i class="fas fa-map-pin"></i> Pin Code</label>
+                        <input type="text" id="pincode" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="register-email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alt-phone"><i class="fas fa-phone-alt"></i> Alternative Phone Number</label>
+                        <input type="tel" id="alt-phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="gst"><i class="fas fa-file-invoice-dollar"></i> GST Number</label>
+                        <input type="text" id="gst" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhar"><i class="fas fa-id-card"></i> Aadhar Number</label>
+                        <input type="text" id="aadhar" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pan"><i class="fas fa-credit-card"></i> PAN Number</label>
+                        <input type="text" id="pan" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="drug-license"><i class="fas fa-file-medical"></i> Drug License Number</label>
+                        <input type="text" id="drug-license" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="register-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-register-password"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" id="confirm-register-password" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i>
+                            Register</button>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p>Already have an account? <a href="#" id="login-link">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="hidden">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand"><i class="fas fa-pills"></i> Stock Easy</a>
+                <button class="toggle-sidebar" id="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link active" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="profile">
+                        <i class="fas fa-user"></i> Profile
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="stock">
+                        <i class="fas fa-pills"></i> Stock Management
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="sales">
+                        <i class="fas fa-shopping-cart"></i> Sales
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="customers">
+                        <i class="fas fa-users"></i> Customers
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="reports">
+                        <i class="fas fa-chart-bar"></i> Reports
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link" data-page="payment">
+                        <i class="fas fa-gift"></i> Payment & Offers
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Dashboard Page -->
+            <div class="page" id="dashboard-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+                    <div class="page-actions">
+                        <span id="current-date"></span>
+                    </div>
+                </div>
+
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-pills"></i></div>
+                        <h3>Total Medicines</h3>
+                        <h2 id="total-medicines">0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-rupee-sign"></i></div>
+                        <h3>Today's Sales</h3>
+                        <h2 id="today-sales">₹0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Monthly Revenue</h3>
+                        <h2 id="monthly-revenue">₹0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h3>Expiring Soon</h3>
+                        <h2 id="expiring-soon">0</h2>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3><i class="fas fa-chart-pie"></i> Sales Overview</h3>
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-pie fa-3x"></i> [Sales Chart Would Appear Here]
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-history"></i> Recent Sales</h3>
+                    <table id="recent-sales-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-calendar"></i> Date</th>
+                                <th><i class="fas fa-user"></i> Customer</th>
+                                <th><i class="fas fa-boxes"></i> Items</th>
+                                <th><i class="fas fa-rupee-sign"></i> Total</th>
+                                <th><i class="fas fa-info-circle"></i> Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Recent sales will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Low Stock Medicines</h3>
+                    <table id="low-stock-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-pills"></i> Medicine</th>
+                                <th><i class="fas fa-barcode"></i> Batch No</th>
+                                <th><i class="fas fa-box"></i> Quantity</th>
+                                <th><i class="fas fa-calendar-times"></i> Expiry Date</th>
+                                <th><i class="fas fa-cog"></i> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Low stock medicines will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page hidden" id="profile-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-user"></i> Profile</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="edit-profile-btn"><i class="fas fa-edit"></i> Edit
+                            Profile</button>
+                    </div>
+                </div>
+
+                <div class="card" id="profile-view">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3><i class="fas fa-id-card"></i> Personal Information</h3>
+                            <p><strong><i class="fas fa-user"></i> Name:</strong> <span id="profile-name"></span></p>
+                            <p><strong><i class="fas fa-envelope"></i> Email:</strong> <span id="profile-email"></span>
+                            </p>
+                            <p><strong><i class="fas fa-phone"></i> Phone:</strong> <span id="profile-phone"></span></p>
+                            <p><strong><i class="fas fa-phone-alt"></i> Alt. Phone:</strong> <span
+                                    id="profile-alt-phone"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h3><i class="fas fa-briefcase"></i> Business Information</h3>
+                            <p><strong><i class="fas fa-store"></i> Business Name:</strong> <span
+                                    id="profile-business"></span></p>
+                            <p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong> <span
+                                    id="profile-address"></span></p>
+                            <p><strong><i class="fas fa-file-invoice-dollar"></i> GST:</strong> <span
+                                    id="profile-gst"></span></p>
+                            <p><strong><i class="fas fa-credit-card"></i> PAN:</strong> <span id="profile-pan"></span>
+                            </p>
+                            <p><strong><i class="fas fa-file-medical"></i> Drug License:</strong> <span
+                                    id="profile-license"></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card hidden" id="profile-edit">
+                    <form id="profile-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3><i class="fas fa-id-card"></i> Personal Information</h3>
+                                <div class="form-group">
+                                    <label for="edit-first-name"><i class="fas fa-user"></i> First Name</label>
+                                    <input type="text" id="edit-first-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-middle-name"><i class="fas fa-user"></i> Middle Name</label>
+                                    <input type="text" id="edit-middle-name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-last-name"><i class="fas fa-user"></i> Last Name</label>
+                                    <input type="text" id="edit-last-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-email"><i class="fas fa-envelope"></i> Email Address</label>
+                                    <input type="email" id="edit-email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-phone"><i class="fas fa-phone"></i> Phone Number</label>
+                                    <input type="tel" id="edit-phone" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-alt-phone"><i class="fas fa-phone-alt"></i> Alternative Phone
+                                        Number</label>
+                                    <input type="tel" id="edit-alt-phone" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3><i class="fas fa-briefcase"></i> Business Information</h3>
+                                <div class="form-group">
+                                    <label for="edit-business-name"><i class="fas fa-store"></i> Business Name</label>
+                                    <input type="text" id="edit-business-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-country"><i class="fas fa-globe"></i> Country</label>
+                                    <input type="text" id="edit-country" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-city"><i class="fas fa-city"></i> City</label>
+                                    <input type="text" id="edit-city" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-state"><i class="fas fa-map-marker-alt"></i> State</label>
+                                    <input type="text" id="edit-state" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-street"><i class="fas fa-road"></i> Street Number</label>
+                                    <input type="text" id="edit-street" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-pincode"><i class="fas fa-map-pin"></i> Pin Code</label>
+                                    <input type="text" id="edit-pincode" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-gst"><i class="fas fa-file-invoice-dollar"></i> GST Number</label>
+                                    <input type="text" id="edit-gst" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-pan"><i class="fas fa-credit-card"></i> PAN Number</label>
+                                    <input type="text" id="edit-pan" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-license"><i class="fas fa-file-medical"></i> Drug License
+                                        Number</label>
+                                    <input type="text" id="edit-license" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="button" class="btn btn-danger" id="cancel-edit-btn"><i
+                                    class="fas fa-times"></i> Cancel</button>
+                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save
+                                Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Stock Management Page -->
+            <div class="page hidden" id="stock-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-pills"></i> Stock Management</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="add-medicine-btn"><i class="fas fa-plus"></i> Add
+                            Medicine</button>
+                    </div>
+                </div>
+
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="view-stock"><i class="fas fa-eye"></i> View
+                            Stock</button>
+                        <button class="tab-btn" data-tab="add-stock"><i class="fas fa-plus-circle"></i> Add
+                            Medicine</button>
+                        <button class="tab-btn" data-tab="sell-stock"><i class="fas fa-cash-register"></i> Sell
+                            Medicine</button>
+                    </div>
+                    <div class="tab-content">
+                        <!-- View Stock Tab -->
+                        <div class="tab-pane active" id="view-stock">
+                            <div class="search-box">
+                                <input type="text" id="stock-search" placeholder="Search medicines...">
+                                <button id="stock-search-btn"><i class="fas fa-search"></i> Search</button>
+                            </div>
+                            <table id="stock-table">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fas fa-barcode"></i> Batch No</th>
+                                        <th><i class="fas fa-pills"></i> Medicine Name</th>
+                                        <th><i class="fas fa-industry"></i> Manufacturer</th>
+                                        <th><i class="fas fa-tags"></i> Category</th>
+                                        <th><i class="fas fa-boxes"></i> Quantity</th>
+                                        <th><i class="fas fa-rupee-sign"></i> MRP</th>
+                                        <th><i class="fas fa-calendar-times"></i> Expiry Date</th>
+                                        <th><i class="fas fa-info-circle"></i> Status</th>
+                                        <th><i class="fas fa-cog"></i> Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Stock data will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Add Stock Tab -->
+                        <div class="tab-pane" id="add-stock">
+                            <form id="add-medicine-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="batch-no"><i class="fas fa-barcode"></i> Batch Number</label>
+                                            <input type="text" id="batch-no" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="medicine-name"><i class="fas fa-pills"></i> Medicine
+                                                Name</label>
+                                            <input type="text" id="medicine-name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="manufacturer"><i class="fas fa-industry"></i>
+                                                Manufacturer</label>
+                                            <input type="text" id="manufacturer" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="category"><i class="fas fa-tags"></i> Category</label>
+                                            <select id="category" class="form-control" required>
+                                                <option value="">Select Category</option>
+                                                <option value="Tablet">Tablet</option>
+                                                <option value="Capsule">Capsule</option>
+                                                <option value="Syrup">Syrup</option>
+                                                <option value="Injection">Injection</option>
+                                                <option value="Ointment">Ointment</option>
+                                                <option value="Drops">Drops</option>
+                                                <option value="Inhaler">Inhaler</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mfg-date"><i class="fas fa-calendar-plus"></i> Manufacturing
+                                                Date</label>
+                                            <input type="date" id="mfg-date" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exp-date"><i class="fas fa-calendar-times"></i> Expiry
+                                                Date</label>
+                                            <input type="date" id="exp-date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="buying-date"><i class="fas fa-calendar-day"></i> Buying
+                                                Date</label>
+                                            <input type="date" id="buying-date" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mrp"><i class="fas fa-rupee-sign"></i> MRP</label>
+                                            <input type="number" id="mrp" class="form-control" step="0.01" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="discount"><i class="fas fa-percentage"></i> Discount
+                                                Cost</label>
+                                            <input type="number" id="discount" class="form-control" step="0.01">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="seller-id"><i class="fas fa-id-card"></i> Seller ID</label>
+                                            <input type="text" id="seller-id" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="seller-name"><i class="fas fa-user-tie"></i> Seller Name</label>
+                                            <input type="text" id="seller-name" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="quantity"><i class="fas fa-boxes"></i> Quantity</label>
+                                            <input type="number" id="quantity" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="medicine-type"><i class="fas fa-prescription-bottle-alt"></i>
+                                                Type of Medicine</label>
+                                            <select id="medicine-type" class="form-control" required>
+                                                <option value="">Select Type</option>
+                                                <option value="Allopathic">Allopathic</option>
+                                                <option value="Ayurvedic">Ayurvedic</option>
+                                                <option value="Homeopathic">Homeopathic</option>
+                                                <option value="Generic">Generic</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-right">
+                                    <button type="reset" class="btn btn-danger"><i class="fas fa-trash"></i>
+                                        Reset</button>
+                                    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Save
+                                        Medicine</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Sell Stock Tab -->
+                        <div class="tab-pane" id="sell-stock">
+                            <form id="sell-medicine-form">
+                                <div class="form-group">
+                                    <label for="customer-name"><i class="fas fa-user"></i> Customer Name</label>
+                                    <input type="text" id="customer-name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-phone"><i class="fas fa-phone"></i> Customer Phone</label>
+                                    <input type="tel" id="customer-phone" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-email"><i class="fas fa-envelope"></i> Customer Email</label>
+                                    <input type="email" id="customer-email" class="form-control">
+                                </div>
+
+                                <h4><i class="fas fa-cart-plus"></i> Add Medicines</h4>
+                                <div class="medicine-selector">
+                                    <select id="medicine-select" class="form-control">
+                                        <option value="">Select Medicine</option>
+                                        <!-- Medicines will be populated here -->
+                                    </select>
+                                    <input type="number" id="medicine-qty" class="form-control" placeholder="Qty"
+                                        min="1" value="1">
+                                    <button type="button" id="add-to-cart" class="btn btn-primary"><i
+                                            class="fas fa-plus"></i> Add</button>
+                                </div>
+
+                                <div class="medicine-list">
+                                    <table id="cart-table">
+                                        <thead>
+                                            <tr>
+                                                <th><i class="fas fa-pills"></i> Medicine</th>
+                                                <th><i class="fas fa-barcode"></i> Batch No</th>
+                                                <th><i class="fas fa-calendar-times"></i> Expiry</th>
+                                                <th><i class="fas fa-rupee-sign"></i> Price</th>
+                                                <th><i class="fas fa-boxes"></i> Qty</th>
+                                                <th><i class="fas fa-calculator"></i> Total</th>
+                                                <th><i class="fas fa-trash"></i> Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Cart items will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="sale-summary">
+                                    <div class="sale-summary-item">
+                                        <h4><i class="fas fa-boxes"></i> Total Items</h4>
+                                        <p id="total-items">0</p>
+                                    </div>
+                                    <div class="sale-summary-item">
+                                        <h4><i class="fas fa-receipt"></i> Subtotal</h4>
+                                        <p id="subtotal">₹0.00</p>
+                                    </div>
+                                    <div class="sale-summary-item">
+                                        <h4><i class="fas fa-percentage"></i> Tax (5%)</h4>
+                                        <p id="tax">₹0.00</p>
+                                    </div>
+                                    <div class="sale-summary-item">
+                                        <h4><i class="fas fa-rupee-sign"></i> Total Amount</h4>
+                                        <p id="total-amount">₹0.00</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <button type="button" id="clear-cart" class="btn btn-danger"><i
+                                            class="fas fa-trash"></i> Clear</button>
+                                    <button type="submit" class="btn btn-success"><i class="fas fa-check-circle"></i>
+                                        Complete Sale</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Page -->
+            <div class="page hidden" id="sales-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-shopping-cart"></i> Sales</h1>
+                    <div class="page-actions">
+                        <select id="sales-period" class="form-control">
+                            <option value="week">Current Week</option>
+                            <option value="month">Current Month</option>
+                            <option value="3months">Last 3 Months</option>
+                            <option value="6months">Last 6 Months</option>
+                            <option value="all">All Time</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <table id="sales-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-calendar"></i> Date</th>
+                                <th><i class="fas fa-file-invoice"></i> Invoice No</th>
+                                <th><i class="fas fa-user"></i> Customer</th>
+                                <th><i class="fas fa-boxes"></i> Items</th>
+                                <th><i class="fas fa-rupee-sign"></i> Amount</th>
+                                <th><i class="fas fa-cog"></i> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Sales data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Customers Page -->
+            <div class="page hidden" id="customers-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-users"></i> Customers</h1>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="add-customer-btn"><i class="fas fa-user-plus"></i> Add
+                            Customer</button>
+                    </div>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="customer-search" placeholder="Search customers...">
+                    <button id="customer-search-btn"><i class="fas fa-search"></i> Search</button>
+                </div>
+
+                <div class="card">
+                    <table id="customers-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-user"></i> Name</th>
+                                <th><i class="fas fa-phone"></i> Phone</th>
+                                <th><i class="fas fa-envelope"></i> Email</th>
+                                <th><i class="fas fa-shopping-bag"></i> Total Purchases</th>
+                                <th><i class="fas fa-clock"></i> Last Purchase</th>
+                                <th><i class="fas fa-cog"></i> Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Customers data will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reports Page -->
+            <div class="page hidden" id="reports-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-chart-bar"></i> Reports</h1>
+                    <div class="page-actions">
+                        <select id="report-period" class="form-control">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-rupee-sign"></i></div>
+                        <h3>Total Revenue</h3>
+                        <h2 id="total-revenue">₹0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-pills"></i></div>
+                        <h3>Medicines Sold</h3>
+                        <h2 id="medicines-sold">0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h3>Expired Medicines</h3>
+                        <h2 id="expired-medicines">0</h2>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h3>Repeat Customers</h3>
+                        <h2 id="repeat-customers">0</h2>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3><i class="fas fa-chart-line"></i> Sales Trend</h3>
+                    <div class="chart-placeholder">
+                        <i class="fas fa-chart-line fa-3x"></i> [Sales Trend Chart Would Appear Here]
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3><i class="fas fa-star"></i> Top Selling Medicines</h3>
+                    <div class="chart-placeholder">
+                        <i class="fas fa-star fa-3x"></i> [Top Selling Medicines Chart Would Appear Here]
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-calendar-times"></i> Expired Medicines</h3>
+                    <table id="expired-medicines-table">
+                        <thead>
+                            <tr>
+                                <th><i class="fas fa-pills"></i> Medicine</th>
+                                <th><i class="fas fa-barcode"></i> Batch No</th>
+                                <th><i class="fas fa-boxes"></i> Quantity</th>
+                                <th><i class="fas fa-calendar-times"></i> Expiry Date</th>
+                                <th><i class="fas fa-rupee-sign"></i> Purchase Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Expired medicines will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Payment & Offers Page -->
+            <div class="page hidden" id="payment-page">
+                <div class="page-header">
+                    <h1 class="page-title"><i class="fas fa-gift"></i> Payment & Offers</h1>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-credit-card"></i> Subscription Plan</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label><i class="fas fa-star"></i> Current Plan</label>
+                                <p><strong>Premium Plan</strong> - ₹999/month</p>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar-alt"></i> Billing Cycle</label>
+                                <p>Monthly (Renews on <span id="renewal-date">15th Oct 2023</span>)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label><i class="fas fa-money-bill-wave"></i> Payment Method</label>
+                                <p>Credit Card ending with ****4242</p>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-rupee-sign"></i> Next Billing Amount</label>
+                                <p>₹999 (including GST)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-warning"><i class="fas fa-exchange-alt"></i> Change Plan</button>
+                        <button class="btn btn-primary"><i class="fas fa-credit-card"></i> Update Payment
+                            Method</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-gifts"></i> Special Offers</h3>
+                    <div class="offer-card">
+                        <h4><i class="fas fa-calendar-star"></i> Annual Subscription - Save 20%</h4>
+                        <p>Switch to annual billing and save 20% on your subscription.</p>
+                        <p><strong>₹9,590/year</strong> (normally ₹11,988)</p>
+                        <button class="btn btn-success"><i class="fas fa-arrow-up"></i> Upgrade to Annual</button>
+                    </div>
+                    <div class="offer-card mt-3">
+                        <h4><i class="fas fa-user-friends"></i> Refer a Friend - Get 1 Month Free</h4>
+                        <p>Refer another pharmacy to MediStock and get 1 month free for both of you.</p>
+                        <button class="btn btn-primary"><i class="fas fa-share-alt"></i> Refer Now</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
